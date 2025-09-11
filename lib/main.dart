@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:society/home_page.dart';
-import 'graphql_config.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:society/screens/home_page.dart';
+import 'screens/profile_screen.dart';
 
-void main() async {
-  await initHiveForFlutter(); // Required for cache storage
-
-  runApp(GraphQLProvider(client: GraphQLConfig.client, child: const MyApp()));
+void main() {
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,6 +12,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Society', home: HomePage());
+    return MaterialApp(
+      title: 'Society',
+      home: HomePage(),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
