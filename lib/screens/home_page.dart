@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:society/providers/drawer.dart';
 import 'profile_screen.dart';
 import 'package:society/dialogs/connections_dialog.dart';
 
@@ -36,6 +37,30 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 1,
+        title: Text(
+          "Society",
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+        ),
+        iconTheme: IconThemeData(color: Colors.black),
+        actions: [
+          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.notifications_none)),
+          Padding(
+            padding: EdgeInsets.only(right: 12),
+            child: Hero(
+              tag: "profile-avatar",
+              child: CircleAvatar(
+                backgroundImage: NetworkImage("https://picsum.photos/200"),
+                radius: 18,
+              ),
+            ),
+          ),
+        ],
+      ),
+      drawer: CustomDrawer(),
       body: _screens[_selectedIndex],
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
