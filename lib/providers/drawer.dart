@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:society/dialogs/connections_dialog.dart';
+import 'package:society/screens/create.dart';
+import 'package:society/screens/home_page.dart';
 
 class CustomDrawer extends StatelessWidget {
   @override
@@ -33,12 +36,20 @@ class CustomDrawer extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.home_outlined),
               title: Text("Home"),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
+              },
             ),
             ListTile(
               leading: Icon(Icons.explore_outlined),
               title: Text("Connections"),
-              onTap: () {},
+              onTap: () {
+                Navigator.pop(context);
+                showConnectionsDialog(context);
+              },
             ),
             ListTile(
               leading: Icon(Icons.groups_outlined),
@@ -58,7 +69,12 @@ class CustomDrawer extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.add),
               title: Text("Create"),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CreateScreen()),
+                );
+              },
             ),
             ListTile(
               leading: Icon(Icons.search),

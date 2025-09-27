@@ -253,8 +253,8 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
                         ),
                       ),
                       child: Text(
-                        'Create account',
-                        style: TextStyle(fontSize: 16),
+                        'Create Account',
+                        style: TextStyle(fontSize: 16, color: Colors.white),
                       ),
                     ),
                   ),
