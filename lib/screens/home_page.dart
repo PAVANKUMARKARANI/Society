@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'profile_screen.dart';
+import 'package:society/dialogs/connections_dialog.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,16 +14,23 @@ class _HomePageState extends State<HomePage> {
 
   final List<Widget> _screens = [
     Center(child: Text("Home Screen")),
-    Center(child: Text("Connections Screen")),
+    Center(child: Text("Connections Placeholder")),
     Center(child: Text("Groups Screen")),
     ProfileScreen(),
     Center(child: Text("Create Screen")),
   ];
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    if (index == 1) {
+      showConnectionsDialog(context);
+      // setState(() {
+      //   _selectedIndex = index;
+      // });
+    } else {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
   }
 
   @override
